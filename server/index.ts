@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { db } from './db';
 import { users, weightEntries } from './db/schema';
 import { eq } from 'drizzle-orm';
+import authRoutes from './routes/auth-routes';
 
 dotenv.config();
 
@@ -12,6 +13,8 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+app.use(authRoutes);
+
 
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', message: 'Weight-Up API is Running '});
