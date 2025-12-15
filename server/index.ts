@@ -2,18 +2,19 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { db } from './db';
-import { users, weightEntries } from './db/schema';
+import { user, weightEntries } from './db/schema';
 import { eq } from 'drizzle-orm';
-import authRoutes from './routes/auth-routes';
+import authHandler from './routes/auth-routes';
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5001;
-
 app.use(cors());
+
+app.all("/api/auth/*", authHandler);
 app.use(express.json());
-app.use(authRoutes);
+
 
 
 app.get('/api/health', (req, res) => {
