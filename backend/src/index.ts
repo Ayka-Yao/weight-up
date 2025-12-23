@@ -23,7 +23,7 @@ app.get('/api/health', (req, res) => {
 
 app.get('/api/users', async (req, res) => {
     try {
-        const allUsers = await db.select().from(users);
+        const allUsers = await db.select().from(user);
         res.json(allUsers);
     } catch (error) {
         console.error(error);
@@ -37,7 +37,7 @@ app.get('/api/weights/:userId', async (req, res) => {
         const entries = await db
             .select()
             .from(weightEntries)
-            .where(eq(weightEntries.userId, parseInt(userId)));
+            .where(eq(weightEntries.userId, userId));
         res.json(entries);
     } catch (error) {
         console.error(error);

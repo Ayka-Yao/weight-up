@@ -27,7 +27,7 @@ export const session = sqliteTable(
         updatedAt: integer("updated_at", { mode: "timestamp_ms" })
         .$onUpdate(() => new Date())
         .notNull(),
-        ipAddress: test("ip_address"),
+        ipAddress: text("ip_address"),
         userAgent: text("user_agent"),
         userId: text("user_id")
             .notNull()
