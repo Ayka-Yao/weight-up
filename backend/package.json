@@ -13,7 +13,7 @@
         "better-auth": "^1.4.5",
         "cors": "2.8.5",
         "dotenv": "17.2.3",
-        "drizzle-orm": "0.45.1",
+        "drizzle-orm": "^0.45.1",
         "express": "^4.22.1"
     },
     "devDependencies": {
