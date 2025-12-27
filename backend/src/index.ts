@@ -5,7 +5,8 @@ import { db } from './db';
 import { user, weightEntries } from './db/schema';
 import { eq } from 'drizzle-orm';
 
-dotenv.config();
+
+dotenv.config({ path: '../../.env' });
 
 const app = express();
 const PORT = process.env.PORT || 5001;
