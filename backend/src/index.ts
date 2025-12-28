@@ -1,12 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+
+dotenv.config({ path: '../.env' });
+
 import { db } from './db';
 import { user, weightEntries } from './db/schema';
 import { eq } from 'drizzle-orm';
 
 
-dotenv.config({ path: '../../.env' });
 
 const app = express();
 const PORT = process.env.PORT || 5001;
