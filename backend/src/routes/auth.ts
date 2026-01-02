@@ -9,6 +9,7 @@ import jwt from "jsonwebtoken";
 const router = Router();
 
 // Register route
+const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET || "default_secret")
 router.post("/signup", async (req, res) => {
     const { email, password, name } = req.body;
     const PlainPass = password;
@@ -19,8 +20,16 @@ router.post("/signup", async (req, res) => {
             password: hash,
             name,
         }).returning();
-        res.status(201).json({ id: user.id, email: user.email, name: user.name });
+        res.status(201).json({ id: user.id, email: user.email, name: user.name, token: token });
     } catch (error) {
         res.status(500).json({ error: "User registration failed" });
     }
 });
+
+router.post("/login", async (req, res) =>{
+    try{
+        const 
+    }
+})
+
+export default router;
