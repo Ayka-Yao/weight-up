@@ -20,7 +20,7 @@ router.post("/signup", async (req, res) => {
             name,
         }).returning();
         const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET || "default_secret");
-        res.status(201).json({ id: newUser.id, email: newUser.email, name: newUser.name, token: newUser.token });
+        res.status(201).json({ id: newUser.id, email: newUser.email, name: newUser.name, token: token });
     } catch (error) {
         res.status(500).json({ error: "User registration failed" });
     }
