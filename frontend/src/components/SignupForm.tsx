@@ -1,3 +1,7 @@
-import { use, useState } from "react";
 
-const [email, setEmail] = useState("");
+
+export default function SignupForm() {
+    return (
+        <form action=""></form>
+    )
+}
